@@ -5,7 +5,7 @@
 % Email: haoliu@ustl.edu.cn,    liuhustl@sina.cn
 %================================================
 % function [Gbest, gbestValue, FEs, Fbest]=MPSO(N,dim,FEs_Max,T_Max,fun,LB,UB)
-function [bestSolution, bestFitness, iteration] = MPSO_FDB_case30(fhd, dimension, maxFEs, fnumber)
+function [bestSolution, bestFitness, iteration] = MPSO_FDB_case31(fhd, dimension, maxFEs, fnumber)
 %% Settings variables 
 settings;
 N = 50; % Population size, number of particles
@@ -95,9 +95,9 @@ while (t < T_Max) % fes <= maxFEs
     %% ==Evaluate Fitness and Change Pbest
     for i=1:N
         if fX(i) < fPbest(i)
-            % case 30
-            Pbest(i,:)=X(fdb_index,:); % equation (6)
-            fPbest(i)=fX(fdb_index); % equation (7)
+            % case 31
+            Pbest(fdb_index,:)=X(fdb_index,:); % equation (6)
+            fPbest(fdb_index)=fX(fdb_index); % equation (7)
         end
         if fPbest(i)<gbestValue
             Gbest=Pbest(i,:); % equation (8)

@@ -5,7 +5,7 @@
 % Email: haoliu@ustl.edu.cn,    liuhustl@sina.cn
 %================================================
 % function [Gbest, gbestValue, FEs, Fbest]=MPSO(N,dim,FEs_Max,T_Max,fun,LB,UB)
-function [bestSolution, bestFitness, iteration] = MPSO_FDB_case30(fhd, dimension, maxFEs, fnumber)
+function [bestSolution, bestFitness, iteration] = MPSO_FDB_case39(fhd, dimension, maxFEs, fnumber)
 %% Settings variables 
 settings;
 N = 50; % Population size, number of particles
@@ -68,7 +68,12 @@ while (t < T_Max) % fes <= maxFEs
     %% 3. Adaptive position updating strategy
     for i=1:N
         if exp(fX(i))/exp(mean(fX))>rand
-            X(i,:)=w*X(i,:)+(1-w)*V(i,:)+Gbest; % equation (1)
+            % case 39
+            if rand < 0.5
+                X(i,:)=w*X(fdb_index,:)+(1-w)*V(i,:)+Gbest; % equation (1)
+            else
+                X(i,:)=w*X(i,:)+(1-w)*V(i,:)+Gbest;
+            end
         else
             X(i,:)=X(i,:)+V(i,:); % equation (2)
         end
@@ -95,9 +100,8 @@ while (t < T_Max) % fes <= maxFEs
     %% ==Evaluate Fitness and Change Pbest
     for i=1:N
         if fX(i) < fPbest(i)
-            % case 30
-            Pbest(i,:)=X(fdb_index,:); % equation (6)
-            fPbest(i)=fX(fdb_index); % equation (7)
+            Pbest(i,:)=X(i,:); % equation (6)
+            fPbest(i)=fX(i); % equation (7)
         end
         if fPbest(i)<gbestValue
             Gbest=Pbest(i,:); % equation (8)
