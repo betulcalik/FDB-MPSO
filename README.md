@@ -33,7 +33,7 @@
 
 <!-- Turkish article -->
 <p><strong>MPSO-FDB algoritmasına ait Türkçe Makale:
-<a href="https://github.com/betulcalik/FDB-MPSO/blob/main/reports/">MPSO-FDB</a></strong></p>
+<a href="https://github.com/betulcalik/FDB-MPSO/blob/main/reports/MPSO-FDB.pdf">MPSO-FDB</a></strong></p>
 
 ---
 
