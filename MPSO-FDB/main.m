@@ -11,7 +11,7 @@ algorithms = {'MPSO', 'FDB_MPSO_case1', 'FDB_MPSO_case2', 'FDB_MPSO_case3', 'FDB
 
 dimension = 30; % the size of the problem to be sized, 30 - 50 - 100
 run = 25; % number of repetitions of experimental
-maxFEs = 1000*dimension; % amac fonksiyonu degerlendirme sayisi
+maxFEs = 10000*dimension; % amac fonksiyonu degerlendirme sayisi
 filename = 'result';
 functionsNumber = 10; % benchmark'taki problem sayisi
 solution = zeros(functionsNumber, run);
